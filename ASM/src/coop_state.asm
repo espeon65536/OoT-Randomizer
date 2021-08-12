@@ -1,7 +1,7 @@
 COOP_CONTEXT:
 
 COOP_VERSION:
-.word 2 ; Increment this if layout of co-op state changes
+.word 3 ; Increment this if layout of co-op state changes
 
 PLAYER_ID:
 .byte 0x00 ; Written by frontend
@@ -22,4 +22,8 @@ OUTGOING_PLAYER:
 
 .area 8*256, 0xDF
 PLAYER_NAMES:
+.endarea
+
+.area 16, 0x00
+AP_PLAYER_NAME:
 .endarea
