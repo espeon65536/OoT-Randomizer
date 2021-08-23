@@ -198,10 +198,10 @@ void pop_pending_item() {
 
 void after_key_received(override_key_t key) {
     if (key.type == OVR_DELAYED && key.flag == 0xFF) {
-        INCOMING_ITEM = 0;
-        INCOMING_PLAYER = 0;
         uint16_t *received_item_counter = (uint16_t *)(z64_file_addr + 0x90);
         (*received_item_counter)++;
+        INCOMING_ITEM = 0;
+        INCOMING_PLAYER = 0;
         return;
     }
 
