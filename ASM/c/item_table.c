@@ -248,6 +248,9 @@ item_row_t item_table[] = {
     [0xC9] = ITEM_ROW(0x53, 0, 0x41, 0x9048, 0x00F3, 0x3E, no_upgrade, give_bean_pack, -1, -1), // Magic Bean Pack
     [0xCA] = ITEM_ROW(0x53, 0, 0x41, 0x9003, 0x0193, 0x35, no_upgrade, give_triforce_piece, -1, -1), // Triforce piece
 
+    [0xCB] = ITEM_ROW(0x53, 0, 0x41, 0x9097, 0x00EF, 0x3B, no_upgrade, no_effect, -1, -1), // AP Progression Item
+    [0xCC] = ITEM_ROW(0x4D, 1, 0x41, 0x9098, 0x00EF, 0x3B, no_upgrade, no_effect, -1, -1), // AP Junk Item
+
 };
 
 item_row_t *get_item_row(uint16_t item_id) {
