@@ -130,9 +130,15 @@ override_suns_song:
     ori     t0, t0, 0x04
     sb      t0, 0x0EDE (at)
 
+    lb      t8, SONGS_AS_ITEMS
+    beqz    t8, @@return
+    nop
+
     jal     push_delayed_item
     li      a0, DELAYED_SUNS_SONG
 
+@@return:
+    addiu   t7, zero, 0x01
     lw      v1, 0x10 (sp)
     lw      ra, 0x14 (sp)
     jr      ra
