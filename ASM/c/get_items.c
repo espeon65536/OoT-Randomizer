@@ -127,14 +127,18 @@ void activate_override(override_t override) {
     //     active_override_is_outgoing = 2; // Send to everyone
     // else
     //     active_override_is_outgoing = override.value.player != PLAYER_ID;
-    active_override_is_outgoing = override.value.player != PLAYER_ID;
+    // active_override_is_outgoing = override.value.player != PLAYER_ID;
+    active_override_is_outgoing = override.value.player != 0;
     active_item_row = item_row;
     active_item_action_id = item_row->action_id;
     active_item_text_id = item_row->text_id;
     active_item_object_id = item_row->object_id;
     active_item_graphic_id = item_row->graphic_id;
     active_item_fast_chest = item_row->chest_type & 0x01;
-    PLAYER_NAME_ID = override.value.player;
+    if (override.value.player != 0)
+        PLAYER_NAME_ID = override.value.player;
+    else
+        PLAYER_NAME_ID = PLAYER_ID;
 }
 
 void clear_override() {
@@ -220,7 +224,7 @@ void after_key_received(override_key_t key) {
 void pop_ice_trap() {
     override_key_t key = pending_item_queue[0].key;
     override_value_t value = pending_item_queue[0].value;
-    if (value.item_id == 0x7C && value.player == PLAYER_ID) {
+    if (value.item_id == 0x7C && value.player == 0) {
         push_pending_ice_trap();
         pop_pending_item();
         after_key_received(key);
@@ -319,7 +323,7 @@ void get_item(z64_actor_t *from_actor, z64_link_t *link, int8_t incoming_item_id
 
     if (from_actor->actor_id == 0x0A) {
         // Update chest contents
-        if (override.value.item_id == 0x7C && override.value.player == PLAYER_ID) {
+        if (override.value.item_id == 0x7C && override.value.player == 0) {
             // Use ice trap base item ID
             base_item_id = 0x7C;
         }
@@ -337,7 +341,7 @@ void get_skulltula_token(z64_actor_t *token_actor) {
     if (override.key.all == 0) {
         // Give a skulltula token if there is no override
         item_id = 0x5B;
-        player = PLAYER_ID;
+        player = 0;
     } else {
         item_id = override.value.item_id;
         player = override.value.player;
@@ -349,6 +353,8 @@ void get_skulltula_token(z64_actor_t *token_actor) {
     token_actor->draw_proc = NULL;
 
     PLAYER_NAME_ID = player;
+    if (PLAYER_NAME_ID == 0)
+        PLAYER_NAME_ID = PLAYER_ID;
     z64_DisplayTextbox(&z64_game, item_row->text_id, 0);
 
     /*if (resolved_item_id == 0xCA) {
@@ -356,7 +362,7 @@ void get_skulltula_token(z64_actor_t *token_actor) {
         set_outgoing_override(&override);
         z64_GiveItem(&z64_game, item_row->action_id);
         call_effect_function(item_row);
-    } else */if (player != PLAYER_ID) {
+    } else */if (player != 0) {
         set_outgoing_override(&override);
     } else {
         z64_GiveItem(&z64_game, item_row->action_id);
