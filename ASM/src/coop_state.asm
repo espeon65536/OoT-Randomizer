@@ -11,6 +11,8 @@ INCOMING_PLAYER:
 .halfword 0x0000
 INCOMING_ITEM:
 .halfword 0x0000
+DEATH_LINK:
+.byte 0x00
 .align 4
 
 OUTGOING_KEY:
