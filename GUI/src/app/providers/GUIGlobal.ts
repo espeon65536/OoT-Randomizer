@@ -34,7 +34,8 @@ export class GUIGlobal {
       ["generatorSettingsArray", []],
       ["generatorSettingsObj", {}],
       ["generatorCosmeticsArray", []],
-      ["generatorCosmeticsObj", {}]
+      ["generatorCosmeticsObj", {}],
+      ["generatorGoalDistros", []]
     ]);
   }
 
@@ -483,12 +484,14 @@ export class GUIGlobal {
     console.log("JSON Settings Data:", guiSettings);
     console.log("Last User Settings:", userSettings);
     console.log("Final Settings Map", this.generator_settingsMap);
+    console.log("Goal Hint Distros", guiSettings.distroArray);
 
     //Save settings after parsing them
     this.setGlobalVar('generatorSettingsArray', guiSettings.settingsArray);
     this.setGlobalVar('generatorSettingsObj', guiSettings.settingsObj);
     this.setGlobalVar('generatorCosmeticsArray', guiSettings.cosmeticsArray);
     this.setGlobalVar('generatorCosmeticsObj', guiSettings.cosmeticsObj);
+    this.setGlobalVar('generatorGoalDistros', guiSettings.distroArray);
 
     this.generator_presets = guiSettings.presets;
   }
@@ -512,7 +515,7 @@ export class GUIGlobal {
 
         this.globalEmitter.emit({ name: "local_version_checked", version: res });
 
-        let branch = res.includes("Release") ? "master" : "Dev";
+        let branch = res.includes("Release") ? "release" : "Dev";
         var remoteFile = await this.http.get("https://raw.githubusercontent.com/TestRunnerSRL/OoT-Randomizer/" + branch + "/version.py", { responseType: "text" }).toPromise();
 
         let remoteVersion = remoteFile.substr(remoteFile.indexOf("'") + 1);
@@ -539,11 +542,11 @@ export class GUIGlobal {
   isVersionNewer(newVersion: string, oldVersion: string) {
 
     //Strip away dev strings
-    if (oldVersion.startsWith("dev_"))
-      oldVersion = oldVersion.replace('dev_', '');
+    if (oldVersion.startsWith("dev") && oldVersion.includes("_"))
+      oldVersion = oldVersion.split("_")[1];
 
-    if (newVersion.startsWith("dev_"))
-      newVersion = newVersion.replace('dev_', '');
+    if (newVersion.startsWith("dev") && newVersion.includes("_"))
+      newVersion = newVersion.split("_")[1];
 
     let oldSplit = oldVersion.replace('v', '').replace(' ', '.').split('.');
     let newSplit = newVersion.replace('v', '').replace(' ', '.').split('.');

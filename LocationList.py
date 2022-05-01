@@ -19,6 +19,7 @@ def shop_address(shop_id, shelf_id):
 #       LW      Lost Woods
 #       OGC     Outside Ganon's Castle
 #       SFM     Sacred Forest Meadow
+#       TH      Thieves' Hideout
 #       ToT     Temple of Time
 #       ZD      Zora's Domain
 #       ZF      Zora's Fountain
@@ -47,12 +48,13 @@ location_table = OrderedDict([
     ("Bongo Bongo",                                                  ("Boss",         None,  0x6A, (0x0CA3F43, 0x0D13E19),      'Shadow Medallion',                      None)),
     ("Twinrova",                                                     ("Boss",         None,  0x69, (0x0CA3EB3, 0x0D39FF1),      'Spirit Medallion',                      None)),
     ("Ganon",                                                        ("Event",        None,  None, None,                        'Triforce',                              None)),
+    ("Gift from Sages",                                              ("Cutscene",     0xFF,  0x03, None,                         None,                                   None)),
 
     ## Songs
     ("Song from Impa",                                               ("Song",         0xFF,  0x26, (0x2E8E925, 0x2E8E925),      'Zeldas Lullaby',                        ("Hyrule Castle", "Market", "Songs"))),
     ("Song from Malon",                                              ("Song",         0xFF,  0x27, (0x0D7EB53, 0x0D7EBCF),      'Eponas Song',                           ("Lon Lon Ranch", "Songs",))),
     ("Song from Saria",                                              ("Song",         0xFF,  0x28, (0x20B1DB1, 0x20B1DB1),      'Sarias Song',                           ("Sacred Forest Meadow", "Forest", "Songs"))),
-    ("Song from Composers Grave",                                    ("Song",         0xFF,  0x29, (0x332A871, 0x332A871),      'Suns Song',                             ("the Graveyard", "Kakariko", "Songs"))),
+    ("Song from Royal Familys Tomb",                                 ("Song",         0xFF,  0x29, (0x332A871, 0x332A871),      'Suns Song',                             ("the Graveyard", "Kakariko", "Songs"))),
     ("Song from Ocarina of Time",                                    ("Song",         0xFF,  0x2A, (0x252FC89, 0x252FC89),      'Song of Time',                          ("Hyrule Field", "Songs", "Need Spiritual Stones"))),
     ("Song from Windmill",                                           ("Song",         0xFF,  0x2B, (0x0E42C07, 0x0E42B8B),      'Song of Storms',                        ("Kakariko Village", "Kakariko", "Songs"))),
     ("Sheik in Forest",                                              ("Song",         0xFF,  0x20, (0x20B0809, 0x20B0809),      'Minuet of Forest',                      ("Sacred Forest Meadow", "Forest", "Songs"))),
@@ -70,7 +72,7 @@ location_table = OrderedDict([
     ("KF Midos Bottom Right Chest",                                  ("Chest",        0x28,  0x03, None,                        'Recovery Heart',                        ("Kokiri Forest", "Forest",))),
     ("KF Kokiri Sword Chest",                                        ("Chest",        0x55,  0x00, None,                        'Kokiri Sword',                          ("Kokiri Forest", "Forest",))),
     ("KF Storms Grotto Chest",                                       ("Chest",        0x3E,  0x0C, None,                        'Rupees (20)',                           ("Kokiri Forest", "Forest", "Grottos"))),
-    ("KF Links House Cow",                                           ("NPC",          0x34,  0x15, None,                        'Milk',                                  ("KF Links House", "Forest", "Cow", "Minigames"))),
+    ("KF Links House Cow",                                           ("NPC",          0x34,  0x15, None,                        'Milk',                                  ("Kokiri Forest", "Forest", "Cow", "Minigames"))),
     ("KF GS Know It All House",                                      ("GS Token",     0x0C,  0x02, None,                        'Gold Skulltula Token',                  ("Kokiri Forest", "Skulltulas",))),
     ("KF GS Bean Patch",                                             ("GS Token",     0x0C,  0x01, None,                        'Gold Skulltula Token',                  ("Kokiri Forest", "Skulltulas",))),
     ("KF GS House of Twins",                                         ("GS Token",     0x0C,  0x04, None,                        'Gold Skulltula Token',                  ("Kokiri Forest", "Skulltulas",))),
@@ -163,7 +165,7 @@ location_table = OrderedDict([
     ("HC GS Storms Grotto",                                          ("GS Token",     0x0E,  0x02, None,                        'Gold Skulltula Token',                  ("Hyrule Castle", "Skulltulas", "Grottos"))),
 
     # Lon Lon Ranch
-    ("LLR Talons Chickens",                                          ("NPC",          0x4C,  0x14, None,                        'Bottle with Milk',                      ("Lon Lon Ranch", "Kakariko", "Minigames"))),
+    ("LLR Talons Chickens",                                          ("NPC",          0x4C,  0x14, None,                        'Bottle with Milk',                      ("Lon Lon Ranch", "Minigames"))),
     ("LLR Freestanding PoH",                                         ("Collectable",  0x4C,  0x01, None,                        'Piece of Heart',                        ("Lon Lon Ranch",))),
     ("LLR Deku Scrub Grotto Left",                                   ("GrottoNPC",    0xFC,  0x30, None,                        'Buy Deku Nut (5)',                      ("Lon Lon Ranch", "Deku Scrub", "Grottos"))),
     ("LLR Deku Scrub Grotto Center",                                 ("GrottoNPC",    0xFC,  0x33, None,                        'Buy Deku Seeds (30)',                   ("Lon Lon Ranch", "Deku Scrub", "Grottos"))),
@@ -218,7 +220,7 @@ location_table = OrderedDict([
     # Graveyard
     ("Graveyard Shield Grave Chest",                                 ("Chest",        0x40,  0x00, None,                        'Hylian Shield',                         ("the Graveyard", "Kakariko",))),
     ("Graveyard Heart Piece Grave Chest",                            ("Chest",        0x3F,  0x00, None,                        'Piece of Heart',                        ("the Graveyard", "Kakariko",))),
-    ("Graveyard Composers Grave Chest",                              ("Chest",        0x41,  0x00, None,                        'Bombs (5)',                             ("the Graveyard", "Kakariko",))),
+    ("Graveyard Royal Familys Tomb Chest",                           ("Chest",        0x41,  0x00, None,                        'Bombs (5)',                             ("the Graveyard", "Kakariko",))),
     ("Graveyard Freestanding PoH",                                   ("Collectable",  0x53,  0x04, None,                        'Piece of Heart',                        ("the Graveyard", "Kakariko",))),
     ("Graveyard Dampe Gravedigging Tour",                            ("Collectable",  0x53,  0x08, None,                        'Piece of Heart',                        ("the Graveyard", "Kakariko",))),
     ("Graveyard Hookshot Chest",                                     ("Chest",        0x48,  0x00, None,                        'Progressive Hookshot',                  ("the Graveyard", "Kakariko",))),
@@ -338,16 +340,18 @@ location_table = OrderedDict([
     ("GV GS Pillar",                                                 ("GS Token",     0x13,  0x04, None,                        'Gold Skulltula Token',                  ("Gerudo Valley", "Skulltulas",))),
 
     # Gerudo's Fortress
-    ("GF North F1 Carpenter",                                        ("Collectable",  0x0C,  0x0C, None,                        'Small Key (Gerudo Fortress)',           ("Gerudo's Fortress", "Gerudo",))),
-    ("GF North F2 Carpenter",                                        ("Collectable",  0x0C,  0x0A, None,                        'Small Key (Gerudo Fortress)',           ("Gerudo's Fortress", "Gerudo",))),
-    ("GF South F1 Carpenter",                                        ("Collectable",  0x0C,  0x0E, None,                        'Small Key (Gerudo Fortress)',           ("Gerudo's Fortress", "Gerudo",))),
-    ("GF South F2 Carpenter",                                        ("Collectable",  0x0C,  0x0F, None,                        'Small Key (Gerudo Fortress)',           ("Gerudo's Fortress", "Gerudo",))),
-    ("GF Gerudo Membership Card",                                    ("NPC",          0x0C,  0x3A, None,                        'Gerudo Membership Card',                ("Gerudo's Fortress", "Gerudo",))),
     ("GF Chest",                                                     ("Chest",        0x5D,  0x00, None,                        'Piece of Heart',                        ("Gerudo's Fortress", "Gerudo",))),
     ("GF HBA 1000 Points",                                           ("NPC",          0x5D,  0x3E, None,                        'Piece of Heart',                        ("Gerudo's Fortress", "Gerudo", "Minigames"))),
     ("GF HBA 1500 Points",                                           ("NPC",          0x5D,  0x30, None,                        'Bow',                                   ("Gerudo's Fortress", "Gerudo", "Minigames"))),
     ("GF GS Top Floor",                                              ("GS Token",     0x14,  0x02, None,                        'Gold Skulltula Token',                  ("Gerudo's Fortress", "Skulltulas",))),
     ("GF GS Archery Range",                                          ("GS Token",     0x14,  0x01, None,                        'Gold Skulltula Token',                  ("Gerudo's Fortress", "Skulltulas",))),
+
+    # Thieves' Hideout
+    ("Hideout Jail Guard (1 Torch)",                                 ("Collectable",  0x0C,  0x0C, None,                        'Small Key (Thieves Hideout)',           ("Thieves' Hideout", "Gerudo",))),
+    ("Hideout Jail Guard (2 Torches)",                               ("Collectable",  0x0C,  0x0F, None,                        'Small Key (Thieves Hideout)',           ("Thieves' Hideout", "Gerudo",))),
+    ("Hideout Jail Guard (3 Torches)",                               ("Collectable",  0x0C,  0x0A, None,                        'Small Key (Thieves Hideout)',           ("Thieves' Hideout", "Gerudo",))),
+    ("Hideout Jail Guard (4 Torches)",                               ("Collectable",  0x0C,  0x0E, None,                        'Small Key (Thieves Hideout)',           ("Thieves' Hideout", "Gerudo",))),
+    ("Hideout Gerudo Membership Card",                               ("NPC",          0x0C,  0x3A, None,                        'Gerudo Membership Card',                ("Thieves' Hideout", "Gerudo",))),
 
     # Wasteland
     ("Wasteland Bombchu Salesman",                                   ("NPC",          0x5E,  0x03, None,                        'Bombchus (10)',                         ("Haunted Wasteland",))),
@@ -364,8 +368,8 @@ location_table = OrderedDict([
     ("Colossus GS Hill",                                             ("GS Token",     0x15,  0x04, None,                        'Gold Skulltula Token',                  ("Desert Colossus", "Skulltulas",))),
 
     # Outside Ganon's Castle
-    ("OGC Great Fairy Reward",                                       ("Cutscene",     0xFF,  0x15, None,                        'Double Defense',                        ("outside Ganon's Castle", "Market", "Fairies"))),
-    ("OGC GS",                                                       ("GS Token",     0x0E,  0x01, None,                        'Gold Skulltula Token',                  ("outside Ganon's Castle", "Skulltulas",))),
+    ("OGC Great Fairy Reward",                                       ("Cutscene",     0xFF,  0x15, None,                        'Double Defense',                        ("Outside Ganon's Castle", "Market", "Fairies"))),
+    ("OGC GS",                                                       ("GS Token",     0x0E,  0x01, None,                        'Gold Skulltula Token',                  ("Outside Ganon's Castle", "Skulltulas",))),
 
     ## Dungeons
     # Deku Tree vanilla
