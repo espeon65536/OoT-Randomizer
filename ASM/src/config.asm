@@ -165,7 +165,9 @@ OPEN_FOREST:
 .byte 0x00
 OPEN_FOUNTAIN:
 .byte 0x00
+
+.area 8, 0x00
 SHOP_SLOTS:
-.word 0x00
+.endarea
 
 .align 4
