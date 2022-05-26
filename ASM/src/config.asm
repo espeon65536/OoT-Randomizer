@@ -165,6 +165,8 @@ OPEN_FOREST:
 .byte 0x00
 OPEN_FOUNTAIN:
 .byte 0x00
+BIG_POE_COUNT:
+.byte 0x00
 
 .area 8, 0x00
 SHOP_SLOTS:
