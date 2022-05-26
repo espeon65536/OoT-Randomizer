@@ -145,4 +145,27 @@ OVERWORLD_SHUFFLED:
 FAST_BUNNY_HOOD_ENABLED:
 .byte 0x00
 
+; Added autotracking info in AP
+DUNGEON_IS_MQ_ADDRESS:
+.word 0x00
+DUNGEON_REWARDS_ADDRESS:
+.word 0x00
+ENHANCE_MAP_COMPASS:
+.byte 0x00
+SHOW_DUNGEON_REWARDS:
+.byte 0x01
+SMALL_KEY_SHUFFLE:
+.byte 0x00
+; 0 = Dungeon
+; 1 = Remove
+; 2 = Keysanity
+SHUFFLE_SCRUBS:
+.byte 0x00
+OPEN_FOREST:
+.byte 0x00
+OPEN_FOUNTAIN:
+.byte 0x00
+SHOP_SLOTS:
+.word 0x00
+
 .align 4
