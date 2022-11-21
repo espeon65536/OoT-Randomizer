@@ -1,7 +1,7 @@
 COOP_CONTEXT:
 
 COOP_VERSION:
-.word 3 ; Increment this if layout of co-op state changes
+.word 4 ; Increment this if layout of co-op state changes
 
 PLAYER_ID:
 .byte 0x00 ; Written by frontend
@@ -11,6 +11,10 @@ INCOMING_PLAYER:
 .halfword 0x0000
 INCOMING_ITEM:
 .halfword 0x0000
+MW_SEND_OWN_ITEMS:
+; Written by multiworld plugin. If nonzero, the OUTGOING fields are set even if
+; we find our own item, for the plugin's information.
+.byte 0x00
 DEATH_LINK:
 .byte 0x00
 .align 4
@@ -26,6 +30,11 @@ OUTGOING_PLAYER:
 PLAYER_NAMES:
 .endarea
 
+.area 5, 0x00
+CFG_FILE_SELECT_HASH:
+.endarea
+
 .area 16, 0x00
 AP_PLAYER_NAME:
 .endarea
+.align 4
