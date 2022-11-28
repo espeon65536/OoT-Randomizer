@@ -247,7 +247,7 @@ item_row_t item_table[] = {
     [0xD3] = ITEM_ROW(0x53,      SILVER_CHEST, 0x41, -1, 0x9018, 0x0195, 0x77, no_upgrade, give_small_key_ring, CASTLE_ID, -1), // Ganon's Castle Small Key Ring
 
     [0xD4] = ITEM_ROW(0x53,      GILDED_CHEST, 0x41, -1, 0x9097, 0x00EF, 0x3B, no_upgrade, no_effect, -1, -1), // AP Progression Item
-    [0xD5] = ITEM_ROW(0x4D,       BROWN_CHEST, 0x41, -1, 0x9098, 0x00EF, 0x3B, no_upgrade, no_effect, -1, -1), // AP Junk Item
+    [0xD5] = ITEM_ROW(0x4D,       BROWN_CHEST, 0x41,  4, 0x9098, 0x00EF, 0x3B, no_upgrade, no_effect, -1, -1), // AP Junk Item
 
 };
 

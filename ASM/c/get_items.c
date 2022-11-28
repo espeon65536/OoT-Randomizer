@@ -723,12 +723,12 @@ uint8_t item_give_collectible(uint8_t item, z64_link_t *link, z64_actor_t *from_
         pItem->actionFunc = Collectible_WaitForMessageBox;  // Set up the EnItem00 action function to wait for the message box to close.
 
         // Give the item to the right place
-        if (resolved_item_id == 0xCA) {
+        /*if (resolved_item_id == 0xCA) {
             // Send triforce to everyone
             set_outgoing_override(&collectible_override);
             z64_GiveItem(&z64_game, item_row->action_id);
             call_effect_function(item_row);
-        } else if (player != PLAYER_ID) {
+        } else*/ if (player != 0) {
             // Item is for another world. Set outgoing item.
             set_outgoing_override(&collectible_override);
         } else {
